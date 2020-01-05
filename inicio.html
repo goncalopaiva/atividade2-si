@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas de Informação</title>
+    
+    <style>
+                
+        .input_NAV{background-color:white;}
+        
+        .logo{
+            height:35vh;
+            width:auto;
+            align-content:center;
+        }
+        
+        .DIV{
+            background-color:lightgrey;
+            padding:10px;}
+            
+        .DIV_MODAL{
+            background-color:lightblue;
+            padding:30px;
+            margin:0px;}
+                
+        footer{
+            background-color:darkgrey;
+            color:white;
+            text-align: center;
+        }
+        
+        .logo-footer{
+            height:10vh;
+            width:auto;
+            align-content:center;
+            padding-top:5px;
+        }
+        
+    </style>
+    
+    <script>
+        function TrocarBackground()
+        {   
+            var colors = ["green", "black","yellow"],
+            selectedColor = colors[Math.floor(Math.random()*colors.length)]
+            $("body").css("background-color", selectedColor);
+        }
+        
+        function multiplyBy()
+        {
+            num1 = document.getElementById("n1").value;
+            num2 = document.getElementById("n2").value;
+            document.getElementById("result").innerHTML = num1 * num2;
+        }
+        
+        function capInputs() {
+               var elements = document.querySelectorAll("input[type=text]")
+               for (var i = 0, element; element = elements[i++];) {
+                  element.value = (element.value).toUpperCase();
+               }
+            
+        }
+    </script>
+    
+</head>
+
+<body> 
+    
+    
+    <div class="DIV">
+    
+        <ul class="nav nav-pills nav-fill">
+                    
+            <li class="nav-item">
+                <button class="btn btn-secundary" onclick="window.location.href='site.html'">Início</button>
+            </li>
+            
+            <li class="nav-item">
+                <button class="btn btn-secundary" onclick="window.location.href='https://www.ufp.pt'">Site UFP</button>
+            </li>
+                
+            <li class="nav-item">
+                <input class="input_NAV" type=text>
+            </li>
+            
+            <li class="nav-item">    
+                <button class="btn btn-secundary" onclick="capInputs();">Em Maiúsculas</button>
+            </li>
+            
+            <li class="nav-item">
+                <button class="btn btn-secundary" onclick="TrocarBackground();">Trocar Background</button>
+            </li>
+
+        </ul>
+        
+    </div>    
+    
+    <br>
+        
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Sobre a UFP</h1>
+        <br>
+        <p>
+            <a class="btn btn-secondary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Mostrar Logotipo</a>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Mostrar Informação</button>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar Ambos</button>
+        </p>
+
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                        <img class="logo" src="logo.jpg">
+                        <br>
+                        <img class="logo" src="ufp.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <div class="card card-body">
+                        A Universidade Fernando Pessoa é uma universidade privada sediada na cidade do Porto, em Portugal. Foi reconhecida pelo Decreto-Lei n.º 107/96, de 31 de Julho, e resultou da integração do Instituto Superior de Ciências da Informação e da Empresa e do Instituto Erasmus de Ensino Superior. <br> <br>
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/o4tGWAbfZv8" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+   
+    
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Multiplicação de 2 Números</h1>
+        <br>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalLong">
+            Abrir
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Multiplicação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                 <form>
+                      <input id="n1" type="text">
+                      <input id="n2" type="text">
+                 </form>
+                  
+                  <br>
+                  
+                <div class="alert alert-secondary" role="alert">
+                      <p>Resultado : 
+                          <br>
+                          <b><span id = "result"></span> </b>
+                </div>
+                  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-secondary" onclick="multiplyBy();">Multiplicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Sobre Nós</h1>
+        <br>
+        <h3>Gonçalo Paiva</h3>
+        <p class="lead">Chamo-me Gonçalo, tenho 19 anos e ver séries e ouvir (boa) música são a melhor maneira de passar os meu dias. A informática e a curiosidade pelo tema foram a principal razão pela qual escolhi Engenharia Informática. Já estive noutra universidade, mas optei por este ano mudar para a Universidade Fernando Pessoa. Espero que, ao acabar o curso, consiga arranjar um bom emprego com um bom salário, claro. A Engenharia Informática está presente em tudo à nossa volta e cada vez mais é necessário um Engenheiro Informático. Esta foi uma das principais razões pela qual escolhi este curso, a boa empregabilidade e a boa oferta salarial são fundamentais quando escolhemos um curso superior.</p>
+
+        <h3>João Miranda</h3>
+        <p class="lead">O meu nome é João Miranda, tenho 21 anos e estou atualmente a frequentar o curso de Engenharia Informática, na Universidade Fernando Pessoa. De entre as minhas atividades preferidas, destaca-se o gosto pela música e pelo desporto, desde a ótica de consumidor até à produção da mesma. Desde pequeno sempre explorei esta paixão, aprendendo a tocar piano, bateria e guitarra, hoje em dia, já sem aulas destes instrumentos, continuo a praticar todos os dias. Em relação ao desporto, já pratiquei alguns, sendo que o que me foquei mais foi basquetebol, acompanhando a principal liga mundial: NBA.Tomei conhecimento deste curso através de outros amigos que neste momento já acabaram esta mesma licenciatura. Como expectativa, espero que após os 3 anos da licenciatura seja capaz de frequentar o mercado de trabalho, sem qualquer problema. Ainda tenho algumas dúvidas relativamente à realização de mestrado, após concluir esta jornada, pois se por um lado é sempre uma mais valia, por outro sinto já vontade de ingressar num trabalho, passar à prática, para que possa também crescer enquanto pessoa. Gostava de realizar erasmus, por ter amigos que já fizeram e disseram ser uma experiência de uma vida, nesta universidade, não conheço ninguém que tenha feito, mas sem dúvida que é algo que estou entusiasmado de fazer.</p>
+      </div>
+    </div>
+    
+    
+    
+</body>
+    
+<footer>
+    Gonçalo Paiva e João Miranda<br>
+    Sistemas de Informação<br>
+    <img class="logo-footer" src="ufp.png">
+</footer>
+    
+</html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
